@@ -3,13 +3,13 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class UserService {
-  private url = "localhost:8080/users";
+  private url = "http://jsonplaceholder.typicode.com";
   constructor(private http : Http) {
     
   }
 
   getUsers(){
-    return this.http.get(this.url);
+    return this.http.get(this.url +"/posts");
   }
 
 }
