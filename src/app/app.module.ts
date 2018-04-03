@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -8,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { UserService } from './services/user.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { UserService } from './services/user.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     UserService

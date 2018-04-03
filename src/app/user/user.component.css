@@ -2,3 +2,7 @@
     margin: 20px;
 
 }
+.selected {
+    background-color: #CFD8DC !important;
+    color: black;
+  }
