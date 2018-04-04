@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './services/user.service';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './services/message.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,15 +18,21 @@ import { UserService } from './services/user.service';
   declarations: [
     AppComponent,
     MenuComponent,
-    UserComponent
+    UserComponent,
+    UserDetailsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path: 'users', component: UserComponent}
+    ]),
   ],
   providers: [
-    UserService
+    UserService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

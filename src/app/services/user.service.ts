@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { MessageService } from './message.service';
 
 @Injectable()
 export class UserService {
@@ -9,6 +10,7 @@ export class UserService {
   }
 
   getUsers(){
+    
     return this.http.get(this.url +"/all");
   }
 
