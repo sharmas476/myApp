@@ -1,0 +1,25 @@
+<div class="col-md-offset-2 col-md-8">
+  <form [formGroup]="form">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input id="username" type="text" class="form-control" formControlName="username" maxlength="6"/>
+        <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">
+          <div *ngIf="form.get('username').errors.required">Username is required.</div>
+          <div *ngIf="form.get('username').errors.minlength">Minimum length is {{ form.get('username').errors.minlength.requiredLength }}.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input id="firstName" type="text" class="form-control" formControlName="firstName" />
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" type="text" class="form-control" formControlName="lastName" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="text" class="form-control" formControlName="email" />
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
+  </form>
+</div>

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { MessageService } from './message.service';
 
 @Injectable()
 export class UserService {
