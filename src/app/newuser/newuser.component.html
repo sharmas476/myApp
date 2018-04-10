@@ -1,25 +1,35 @@
 <div class="col-md-offset-2 col-md-8">
   <form [formGroup]="form">
     <div class="form-group">
-        <label for="username">Username:</label>
-        <input id="username" type="text" class="form-control" formControlName="username" maxlength="6"/>
-        <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">
-          <div *ngIf="form.get('username').errors.required">Username is required.</div>
-          <div *ngIf="form.get('username').errors.minlength">Minimum length is {{ form.get('username').errors.minlength.requiredLength }}.</div>
+        <label for="userName">Username:</label>
+        <input id="userName" type="text" class="form-control" formControlName="userName" maxlength="6"/>
+        <div *ngIf="form.get('userName').touched && form.get('userName').invalid" class="alert alert-danger">
+          <div *ngIf="form.get('userName').errors.required">Username is required.</div>
+          <div *ngIf="form.get('userName').errors.minlength">Minimum length is {{ form.get('userName').errors.minlength.requiredLength }}.</div>
         </div>
     </div>
     <div class="form-group">
         <label for="firstName">First Name:</label>
         <input id="firstName" type="text" class="form-control" formControlName="firstName" />
+        <div *ngIf="form.get('firstName').touched && form.get('firstName').invalid" class="alert alert-danger">
+          <div *ngIf="form.get('firstName').errors.required">First name is required.</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="lastName">Last Name:</label>
         <input id="lastName" type="text" class="form-control" formControlName="lastName" />
+        <div *ngIf="form.get('lastName').touched && form.get('lastName').invalid" class="alert alert-danger">
+          <div *ngIf="form.get('lastName').errors.required">Last name is required.</div>
+        </div>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
       <input id="email" type="text" class="form-control" formControlName="email" />
+      <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
+        <div *ngIf="form.get('email').errors.required">Email is required.</div>
+        <div *ngIf="form.get('email').errors.email">Email is invalid.</div>
+      </div>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
+    <button class="btn btn-primary" type="submit" (click)="onSubmit()" [disabled]="!form.valid">Save</button>
   </form>
 </div>

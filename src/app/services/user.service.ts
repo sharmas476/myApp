@@ -1,3 +1,4 @@
+import { User } from './../user/user';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -9,8 +10,11 @@ export class UserService {
   }
 
   getUsers(){
-    
     return this.http.get(this.url +"/all");
+  }
+
+  postUser(user : User){
+    return this.http.post(this.url + "/save", user);
   }
 
 }

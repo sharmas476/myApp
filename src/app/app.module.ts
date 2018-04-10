@@ -13,7 +13,8 @@ import { NewuserComponent } from './newuser/newuser.component';
 
 const routes : Routes = [
   {path: 'users', component: UserComponent},
-  {path: 'adduser', component: NewuserComponent}
+  {path: 'adduser', component: NewuserComponent},
+  {path: '**', component: UserComponent}
 ];
 
 @NgModule({

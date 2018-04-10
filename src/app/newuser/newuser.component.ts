@@ -1,7 +1,8 @@
+import { UserService } from './../services/user.service';
 import { User } from './../user/user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { VALID } from '@angular/forms/src/model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newuser',
@@ -10,18 +11,30 @@ import { VALID } from '@angular/forms/src/model';
 })
 export class NewuserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   form = new FormGroup({
-    username: new FormControl('',[
+    userName: new FormControl('',[
       Validators.required,
       Validators.minLength(6)
     ]),
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    email: new FormControl()
+    firstName: new FormControl('',Validators.required),
+    lastName: new FormControl('',Validators.required),
+    email: new FormControl('',[
+      Validators.required,
+      Validators.email
+    ])
   });
+
+  onSubmit(){
+    this.service.postUser(this.form.value).subscribe(
+      response => {
+        this.router.navigate(["users"]);
+      }
+    );
+    
+  }
 }
