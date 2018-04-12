@@ -17,4 +17,12 @@ export class UserService {
     return this.http.post(this.url + "/save", user);
   }
 
+  deleteUser(id: number){
+    return this.http.delete(this.url + "/" + id);
+  }
+
+  updateUser(user: User){
+    return this.http.put(this.url +"/update", user);
+  }
+
 }

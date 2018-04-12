@@ -1,4 +1,4 @@
-<div *ngIf="user">
+<div *ngIf="user" >
   <label>First Name:
     <input [(ngModel)]="user.firstName" placeholder="First Name">
   </label>
@@ -11,4 +11,5 @@
   <label>Email:
     <input [(ngModel)]="user.email" placeholder="Email">
   </label>
+  <button type="button" class="btn btn-primary" (click)="onUpdate(user)">Update</button>
 </div>

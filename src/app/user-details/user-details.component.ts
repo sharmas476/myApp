@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UserService } from './../services/user.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user/user';
 
@@ -10,9 +12,15 @@ export class UserDetailsComponent implements OnInit {
 
   @Input()
   user : User;
-  constructor() { }
+  constructor(private service : UserService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onUpdate(user: User){
+    this.service.updateUser(user).subscribe(response => {
+      this.router.navigate(["users"]);
+    })
   }
 
 }
